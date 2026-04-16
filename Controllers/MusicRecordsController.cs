@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MusicCollectionAPI.Models;
-using MusicCollectionAPI.Repositories;
+
+
 
 [ApiController]
 [Route("[controller]")]

@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using MusicCollectionAPI.Repositories;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<MusicRecordRepository>();
+builder.Services.AddScoped<MusicRecordRepository>();
+builder.Services.AddDbContext<MusicDbContext>(options =>  
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddCors();
 
 builder.Services.AddControllers();
